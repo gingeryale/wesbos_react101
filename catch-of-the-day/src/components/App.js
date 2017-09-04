@@ -3,6 +3,7 @@ import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
 import sampleFishes from '../sample-fishes';
+import Fish from './Fish';
 
 // when this app initializes it needs to know fish state
 // Create a constructor method and call super, before using this
@@ -42,6 +43,12 @@ class App extends React.Component {
 			<div className="catch-of-the-day">
 				<div className="menu">
 					<Header tagline="Fresh Seafood market"/>
+					<ul className="list-of-fishes">
+					   {
+					   	Object.keys(this.state.fishes)
+					   	.map(key => <Fish key={key} details={this.state.fishes[key]} />)
+					   }
+					</ul>
 				</div>
 				<Order />
 				<Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
