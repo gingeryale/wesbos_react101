@@ -4,6 +4,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import sampleFishes from '../sample-fishes';
 import Fish from './Fish';
+import base from '../base';
 
 // when this app initializes it needs to know fish state
 // Create a constructor method and call super, before using this
@@ -20,6 +21,17 @@ class App extends React.Component {
 			fishes: {},
 			order: {}
 		};
+	}
+
+	componentWillMount(){
+		this.ref=base.syncState(`${this.props.params.storeId}/fishes`
+			,{
+				context: this,
+				state: 'fishes'
+			});
+	}
+	componentWillUnmount(){
+		base.removeBinding(this.ref);
 	}
 	// add addFish to constructor method
 	addFish(fish){
