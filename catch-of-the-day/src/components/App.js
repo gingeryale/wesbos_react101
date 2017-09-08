@@ -16,6 +16,7 @@ class App extends React.Component {
 		this.loadSamples = this.loadSamples.bind(this);
 		this.addToOrder = this.addToOrder.bind(this);
 		this.updateFish=this.updateFish.bind(this);
+		this.removeFish=this.removeFish.bind(this);
 
 		// getInitialState
 		this.state = {
@@ -66,6 +67,11 @@ class App extends React.Component {
 		this.setState({fishes});
 	}
 
+	removeFish(key){
+		const fishes = {...this.state.fishes};
+		fishes[key] = null;
+		this.setState({fishes});
+	}
 	// State lives in our App
 	loadSamples() {
 		this.setState({
@@ -105,6 +111,7 @@ class App extends React.Component {
 					loadSamples={this.loadSamples} 
 					fishes={this.state.fishes}
 					updateFish={this.updateFish}
+					removeFish={this.removeFish}
 				/>
 			</div>
 		)
