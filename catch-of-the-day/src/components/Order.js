@@ -17,6 +17,7 @@ class Order extends React.Component {
 			return <li key={key}>Sorry, {fish ? fish.name : 'fish '} 
 			 is no longer available! {removeButton}</li>
 		}
+
 		return(
 		<li key={key}>
 			<span>{count}lbs {fish.name} {removeButton}</span>
@@ -44,7 +45,7 @@ class Order extends React.Component {
 				<h2>Your Order</h2>
 				{orderIds.map(this.renderOrder)}
 				<ul className="order">
-				<li className="total"><b>Total:</b>{formatPrice(total)}</li>
+				<li className="total"><strong>Total:</strong> {formatPrice(total)}</li>
 				</ul>
 			</div>
 		)
