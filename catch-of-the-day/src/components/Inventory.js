@@ -16,7 +16,7 @@ class Inventory extends React.Component {
 
 		this.state={
 			uid: null,
-			ownder: null
+			owner: null
 		} 
 	}
 
